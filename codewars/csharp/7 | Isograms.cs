@@ -5,7 +5,7 @@ public class Kata
 {
   public static bool IsIsogram(string str) 
   {
-    for (int i=0; i <26; i++) {
+    for (int i=0; i < 26; i++) {
       if (str.Length - (str.ToLower()).Replace("abcdefghijklmnopqrstuvwxyz"[i].ToString(),"").Length > 1)
         return false;
     }
