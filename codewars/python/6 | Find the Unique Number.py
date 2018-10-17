@@ -2,9 +2,6 @@
 #findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
 #It’s guaranteed that array contains more than 3 numbers.
 def find_uniq(arr):
-    first = [];second = []
-    for i in arr:
-        if i == arr[0]: first.append(i)
-        else: second.append(i)
-    if len(first) > len(second): return second[0]
-    else: return first[0]
+    arr.sort()
+    return arr[0] if arr.count(arr[0]) == 1 else arr[-1]
+    
