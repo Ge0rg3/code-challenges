@@ -3,7 +3,4 @@
 #domain_name("http://www.zombie-bites.com") == "zombie-bites"
 #domain_name("github.com") == "github"
 def domain_name(url):
-    try: url = url.split("//")[1].split(".")
-    except: url = url.split(".")
-    if url[0] == "www": return url[1]
-    else: return url[0]
+    return (lambda url=url.split("//")[1].split(".") if "//" in url else url.split(".") : url[1] if url[0] == "www" else url[0])()
