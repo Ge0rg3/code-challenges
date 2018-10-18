@@ -3,9 +3,4 @@
 #Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm.
 #You have to write a function printer_error which given a string will output the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string.
 #e.g. s="aaaxbbbbyyhwawiwjjjwwm"   -->   error_printer(s) => "8/22"
-def printer_error(s):
-    errorcount = 0
-    for letter in s:
-        if letter not in "abcdefghijklm":
-            errorcount += 1
-    return "%d/%d" % (errorcount, len(s))
+printer_error = lambda s : "%d/%d" % (len([i for i in s if i not in "abcdefghijklm"]), len(s))
