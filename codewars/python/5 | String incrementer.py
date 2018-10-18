@@ -3,18 +3,5 @@
 #foo0042 -> foo0043
 #foo099 -> foo100
 def increment_string(strng):
-    intst = ""
-    for i in strng[::-1]:
-        try: intst = str(int(i))+intst
-        except:
-            if intst == "": strng +="1"
-            break
-    intleng = len(intst)
-    if strng == "": return "1"
-    strng = strng[:len(strng)-intleng]
-    if intst != "":
-        intst = int(intst)+1
-        zeros = "0"*(int(intleng)-len(str(intst)))
-        return strng+zeros+str(intst)
-    else:
-        return strng+intst
+    n = lambda strng, s = (strng[-(int(((len(''.join(list(map(lambda n: n if n not in "1234567890" else "!?!", list(strng))))))-(len(''.join(list(map(lambda n: n if n not in "1234567890" else "!?!", list(strng)))).rstrip("!?!"))))/3)):]) : (((s if s.isdigit() else "0").join(strng.split(s if s.isdigit() else "0")[:-1]) if (s if s.isdigit() else "0") in strng else strng)+(str(int(s if s.isdigit() else "0")+1)).zfill(len(s if s.isdigit() else "0"))) 
+    return n(strng)
