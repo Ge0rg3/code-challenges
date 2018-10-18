@@ -2,5 +2,4 @@
 #Kata.Maskify('4556364607935616'); // should return "############5616"
 #Kata.Maskify('1');                // should return "1"
 #Kata.Maskify('');                 // should return ""
-def maskify(cc):
-    return ("#"*(len(cc)-4))+cc[-4:]
+maskify = lambda cc : ("#"*(len(cc)-4))+cc[-4:]
