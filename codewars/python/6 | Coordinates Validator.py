@@ -4,14 +4,4 @@
 #Coordinates can only contain digits, or one of the following symbols (including space after comma) -, .
 #There should be no space between the minus "-" sign and the digit after it.
 def is_valid_coordinates(coordinates):
-    two = coordinates.split(', ')
-    try:
-        if '1e1' in two: return False
-        fone = float(two[0]); ftwo = float(two[1])
-        if fone/fone == 1 and ftwo/ftwo == 1:
-            if -90 <= fone <= 90 and -180 <= ftwo <= 180: return True
-            else: return False
-        else:
-            return False
-    except:
-        return False
+    return (lambda coordinates, two=coordinates.split(', ') : False if ((len(two) != 2) or (len([i for i in ''.join(two) if i not in "0123456789. -"]) > 0) or (len([n for n in two if (n.count(".") > 1 or n.count(" ") > 0)]) > 0) or (float(two[0].replace("-",""))>90) or (float(two[1].strip().replace("-",""))>180)) else True)(coordinates)
